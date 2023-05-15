@@ -95,7 +95,7 @@ const Home = () => {
         <div className="relative">
           <ParallaxBanner layers={[background, headline, foreground, gradientOverlay]} className="h-screen" />
 
-          <div className="bg-[#000] w-full over">
+          <div className="bg-[#000] w-full overflow-hidden">
             <div className="grid grid-cols-12" ref={parallax.ref}>
               <div className="col-start-2 col-span-10">
                 <TypographyStyled className="h2 text-white" ismobile={isMobile?.toString()}>
