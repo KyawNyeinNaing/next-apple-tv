@@ -12,7 +12,7 @@ const Player = () => {
 
   const render = () => {
     return (
-      <div className="grid grid-cols-12 gap-x-[9rem]">
+      <div className="grid grid-cols-12 md:gap-x-[9rem] maxSm:px-[16px]">
         {players?.data?.map((player: any, key: number) => {
           let className;
           if (key === 0) {
@@ -26,7 +26,7 @@ const Player = () => {
           }
 
           return (
-            <Card key={key} className={`mt-6 w-96 ${className} md:col-span-3 col-span-1`}>
+            <Card key={key} className={`mt-6 w-96 ${className} md:col-span-3 col-span-12`}>
               <CardBody>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   {player.first_name + ' ' + player.last_name}

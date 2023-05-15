@@ -24,6 +24,7 @@ type HeaderStyledProps = {
   sticky?: boolean;
   openMenu?: boolean;
   spMenuOpen?: boolean;
+  ismobile: string;
 };
 
 const Header = () => {
@@ -43,12 +44,14 @@ const Header = () => {
   return (
     <>
       <Close onClick={handleOpen} openMenu={isMenuOpen} className="fixed top-0 left-0 opacity-0 invisible" />
-      <TWHeader sticky={!isMobile && isNavShowing}>
+      <TWHeader sticky={!isMobile && isNavShowing} ismobile={isMobile?.toString()}>
         <Responsive query={{ minWidth: 768 }}>
           <div className="col-start-2 col-span-10">
             <div className={`flex items-center justify-between transition-all h-[88px]`}>
               <div className="flex items-center justify-between">
-                <LinkStyled href="/" className='mr-[100px]'>Apple TV+</LinkStyled>
+                <LinkStyled href="/" className="mr-[100px]">
+                  Apple TV+
+                </LinkStyled>
                 <div className="flex items-center justify-start gap-x-[20px]">
                   <Link
                     href="/player"
@@ -93,7 +96,7 @@ const Header = () => {
                   mouseEnter={true}
                 >
                   <p
-                    className='cursor-pointer'
+                    className="cursor-pointer"
                     onClick={() => {
                       logout();
                       router.push('/login');
@@ -110,7 +113,7 @@ const Header = () => {
           <div className="col-span-12">
             <div className={`flex items-center justify-between transition-all h-[60px] px-[16px]`}>
               <Link href="/">
-                <Image imageType="image" src="/small-logo.svg" className="w-[50px] h-[50px]" alt="logo" />
+                <Image imageType="image" src="/vercel.svg" className="w-[50px] h-[50px]" alt="logo" />
               </Link>
 
               <MenuIcon onClick={handleOpen}>
@@ -122,7 +125,7 @@ const Header = () => {
       </TWHeader>
 
       {/* onlu show in mobile view */}
-      <TWMobileHeader $spMenuOpen={isMenuOpen}>
+      <TWMobileHeader $spMenuOpen={isMenuOpen} ismobile={isMobile?.toString()}>
         <Link href="/player" className="inline-block">
           <Text size="semilg" weight="lg" color="primary-100" onClick={handleOpen}>
             Players
@@ -148,7 +151,7 @@ export default Header;
 const HeaderStyled = styled.header<HeaderStyledProps>`
   position: fixed;
   top: 0;
-  background-color: #111;
+  background-color: ${props => props.ismobile === 'true' ? '#fff' : '#111'};
   z-index: 9;
   ${props => {
     return (
@@ -179,7 +182,7 @@ const HeaderStyled = styled.header<HeaderStyledProps>`
   }
 `;
 
-const TWHeader = tw(props => <HeaderStyled {...props} />)<{ sticky?: boolean; children: React.ReactNode }>`
+const TWHeader = tw(props => <HeaderStyled {...props} />)<{ sticky?: boolean; ismobile: string; children: React.ReactNode }>`
   w-full
   transform
   ${props => (props.sticky ? '-translate-y-[100%]' : 'translate-y-0')}
@@ -190,7 +193,7 @@ const TWHeader = tw(props => <HeaderStyled {...props} />)<{ sticky?: boolean; ch
   left-0
 `;
 
-const TWMobileHeader = tw(props => <HeaderStyled {...props} />)<{ $spMenuOpen?: any; children: React.ReactNode }>`
+const TWMobileHeader = tw(props => <HeaderStyled {...props} />)<{ $spMenuOpen?: any; ismobile: string; children: React.ReactNode }>`
   transform
   ${props => (props.$spMenuOpen ? 'translate-x-[0]' : 'translate-x-[100%]')}
   h-full

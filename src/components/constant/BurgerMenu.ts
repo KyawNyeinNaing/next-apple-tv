@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { colors } from './Colors';
+import { colors } from '@/components/constant/Colors';
 
 export const OpenBurger = styled.div`
   &.burger-wrap {
@@ -40,7 +40,7 @@ export const MenuIcon = styled.div`
   .menu-icon {
     width: 30px;
     height: 3px;
-    background: ${colors.primary};
+    background: ${colors.primary['600']};
     border-radius: 5px;
     transition: all 0.2s ease-in-out;
     &:before,
@@ -50,7 +50,7 @@ export const MenuIcon = styled.div`
       right: 0;
       width: 25px;
       height: 3px;
-      background: ${colors.primary};
+      background: ${colors.primary['600']};
       border-radius: 5px;
       transition: all 0.2s ease-in-out;
     }
