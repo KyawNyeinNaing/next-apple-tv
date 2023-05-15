@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { GlobalStyle } from '@/components/constant';
 import useResponsive from '@/hooks/useMediaQuery';
 import Header from './Header';
-import Footer from './Footer';
 import { getToken } from '@/services/Auth';
 
 type Props = {
@@ -39,7 +38,6 @@ const Layout: React.FC<Props> = ({ children }) => {
       <Main className={`overflow-hidden ${!isMobile ? 'mt-[88px]' : 'mt-[60px]'}`}>
         <Header />
         <article className="overflow-hidden">{children}</article>
-        <Footer />
       </Main>
     </>
   );
