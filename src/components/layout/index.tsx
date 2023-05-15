@@ -32,7 +32,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Code Test</title>
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/vercel.svg" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <Main className={`overflow-hidden ${!isMobile ? 'mt-[88px]' : 'mt-[60px]'}`}>
