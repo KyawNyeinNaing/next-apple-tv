@@ -95,7 +95,7 @@ const Home = () => {
         <div className="relative">
           <ParallaxBanner layers={[background, headline, foreground, gradientOverlay]} className="h-screen" />
 
-          <div className="bg-[#000] w-full overflow-hidden">
+          <div className="bg-[#000] w-full over">
             <div className="grid grid-cols-12" ref={parallax.ref}>
               <div className="col-start-2 col-span-10">
                 <TypographyStyled className="h2 text-white" ismobile={isMobile?.toString()}>
@@ -378,7 +378,7 @@ const Home = () => {
               <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
                 <AccordionHeaderStyled
                   className="text-left"
-                  onClick={() => handleOpen(3)}
+                  onClick={() => handleOpen(4)}
                   ismobile={isMobile?.toString()}
                 >
                   Can I share with my family?
@@ -390,7 +390,7 @@ const Home = () => {
               <Accordion open={open === 5} icon={<Icon id={5} open={open} />}>
                 <AccordionHeaderStyled
                   className="text-left"
-                  onClick={() => handleOpen(3)}
+                  onClick={() => handleOpen(5)}
                   ismobile={isMobile?.toString()}
                 >
                   Are there commercials? And can I watch on demand?
@@ -403,7 +403,7 @@ const Home = () => {
               <Accordion open={open === 6} icon={<Icon id={6} open={open} />}>
                 <AccordionHeaderStyled
                   className="text-left"
-                  onClick={() => handleOpen(3)}
+                  onClick={() => handleOpen(6)}
                   ismobile={isMobile?.toString()}
                 >
                   Do I need an Apple TV 4K?
@@ -414,10 +414,10 @@ const Home = () => {
                   app on your favorite devices.
                 </AccordionBodyStyled>
               </Accordion>
-              <Accordion open={open === 6} icon={<Icon id={6} open={open} />}>
+              <Accordion open={open === 7} icon={<Icon id={7} open={open} />}>
                 <AccordionHeaderStyled
                   className="text-left"
-                  onClick={() => handleOpen(3)}
+                  onClick={() => handleOpen(7)}
                   ismobile={isMobile?.toString()}
                 >
                   Can I download to watch offline?
